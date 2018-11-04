@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\Jason\\SkyDrive\\CS5600-AI\\Project01\\pck_nets\\audio_cnn.tfl"
+all_model_checkpoint_paths: "C:\\Users\\Jason\\SkyDrive\\CS5600-AI\\Project01\\pck_nets\\audio_cnn.tfl"
