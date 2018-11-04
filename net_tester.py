@@ -12,11 +12,11 @@ import cv2
 import numpy as np
 import pickle as cPickle
 from scipy.io import wavfile
-# import tflearn
-# from tflearn.data_utils import shuffle, to_categorical
-# from tflearn.layers.core import input_data, dropout, fully_connected
-# from tflearn.layers.conv import conv_2d, max_pool_2d
-# from tflearn.layers.estimator import regression
+import tflearn
+from tflearn.data_utils import shuffle, to_categorical
+from tflearn.layers.core import input_data, dropout, fully_connected
+from tflearn.layers.conv import conv_2d, max_pool_2d
+from tflearn.layers.estimator import regression
 
 # img = cv2.imread('BEE2Set/bee_train/img0/1_51_yb.png')
 # print(img.shape)
@@ -102,57 +102,57 @@ def load(file_name):
     return nn
 
 
-# input_layer = input_data(shape=[None, 32, 32, 1])
-# conv_layer_1 = conv_2d(input_layer,
-#                        nb_filter=20,
-#                        filter_size=5,
-#                        activation='relu',
-#                        name='conv_layer_1')
-# pool_layer_1 = max_pool_2d(conv_layer_1, 2, name='pool_layer_1')
-# conv_layer_2 = conv_2d(pool_layer_1,
-#                        nb_filter=40,
-#                        filter_size=5,
-#                        activation='relu',
-#                        name='conv_layer_2')
-# pool_layer_2 = max_pool_2d(conv_layer_2, 2, name='pool_layer_2')
-# fc_layer_1 = fully_connected(pool_layer_2, 100,
-#                              activation='sigmoid',
-#                              name='fc_layer_1')
-# dropout_1 = dropout(fc_layer_1, 0.5)
-# fc_layer_2 = fully_connected(dropout_1, 2,
-#                              activation='softmax',
-#                              name='fc_layer_2')
-# image_model = tflearn.DNN(fc_layer_2)
-# image_model.load('pck_nets/image_cnn.tfl')
-#
-#
-# input_layer  = input_data(shape=[None, 63, 63, 1])
-# conv_layer_1 = conv_2d(input_layer,
-#                       nb_filter=20,
-#                       filter_size=6,
-#                       activation='relu',
-#                       name='conv_layer_1')
-# pool_layer_1 = max_pool_2d(conv_layer_1, 2, name='pool_layer_1')
-# conv_layer_2 = conv_2d(pool_layer_1,
-#                        nb_filter=40,
-#                        filter_size=5,
-#                        activation='relu',
-#                        name='conv_layer_2')
-# pool_layer_2 = max_pool_2d(conv_layer_2, 2, name='pool_layer_2')
-# fc_layer_1   = fully_connected(pool_layer_2, 100,
-#                                activation='sigmoid',
-#                                name='fc_layer_1')
-# dropout_1    = dropout(fc_layer_1, 0.5)
-# fc_layer_2   = fully_connected(dropout_1, 3,
-#                                activation='softmax',
-#                                name='fc_layer_2')
-# audio_model = tflearn.DNN(fc_layer_2)
-# audio_model.load('pck_nets/audio_cnn.tfl')
+input_layer = input_data(shape=[None, 32, 32, 1])
+conv_layer_1 = conv_2d(input_layer,
+                       nb_filter=20,
+                       filter_size=5,
+                       activation='relu',
+                       name='conv_layer_1')
+pool_layer_1 = max_pool_2d(conv_layer_1, 2, name='pool_layer_1')
+conv_layer_2 = conv_2d(pool_layer_1,
+                       nb_filter=40,
+                       filter_size=5,
+                       activation='relu',
+                       name='conv_layer_2')
+pool_layer_2 = max_pool_2d(conv_layer_2, 2, name='pool_layer_2')
+fc_layer_1 = fully_connected(pool_layer_2, 100,
+                             activation='sigmoid',
+                             name='fc_layer_1')
+dropout_1 = dropout(fc_layer_1, 0.5)
+fc_layer_2 = fully_connected(dropout_1, 2,
+                             activation='softmax',
+                             name='fc_layer_2')
+image_model = tflearn.DNN(fc_layer_2)
+image_model.load('pck_nets/image_cnn.tfl')
+
+
+input_layer  = input_data(shape=[None, 63, 63, 1])
+conv_layer_1 = conv_2d(input_layer,
+                      nb_filter=20,
+                      filter_size=6,
+                      activation='relu',
+                      name='conv_layer_1')
+pool_layer_1 = max_pool_2d(conv_layer_1, 2, name='pool_layer_1')
+conv_layer_2 = conv_2d(pool_layer_1,
+                       nb_filter=40,
+                       filter_size=5,
+                       activation='relu',
+                       name='conv_layer_2')
+pool_layer_2 = max_pool_2d(conv_layer_2, 2, name='pool_layer_2')
+fc_layer_1   = fully_connected(pool_layer_2, 100,
+                               activation='sigmoid',
+                               name='fc_layer_1')
+dropout_1    = dropout(fc_layer_1, 0.5)
+fc_layer_2   = fully_connected(dropout_1, 3,
+                               activation='softmax',
+                               name='fc_layer_2')
+audio_model = tflearn.DNN(fc_layer_2)
+audio_model.load('pck_nets/audio_cnn.tfl')
 
 
 ann_image = load('pck_nets/image_ann.pck')
 print(fit_image_ann(ann_image, 'BEE2Set/no_bee_train/img0/118_0_yb.png'))
 ann_audio = load('pck_nets/audio_ann.pck')
 print(fit_image_ann(ann_audio, 'BUZZ2Set/test/bee_test/bee25.wav'))
-# print(fit_image_convnet(image_model, 'BEE2Set/no_bee_train/img0/118_0_yb.png'))
-# print(fit_audio_convnet(audio_model, 'BUZZ2Set/test/bee_test/bee25.wav'))
+print(fit_image_convnet(image_model, 'BEE2Set/no_bee_train/img0/118_0_yb.png'))
+print(fit_audio_convnet(audio_model, 'BUZZ2Set/test/bee_test/bee25.wav'))
