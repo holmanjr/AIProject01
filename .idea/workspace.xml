@@ -90,8 +90,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/net_tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="738">
+              <caret line="156" column="74" selection-start-line="156" selection-start-column="74" selection-end-line="157" selection-end-column="75" />
               <folding>
                 <element signature="e#157#204#0" expanded="true" />
               </folding>
@@ -333,8 +333,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net_tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="738">
+          <caret line="156" column="74" selection-start-line="156" selection-start-column="74" selection-end-line="157" selection-end-column="75" />
           <folding>
             <element signature="e#157#204#0" expanded="true" />
           </folding>
